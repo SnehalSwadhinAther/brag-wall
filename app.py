@@ -3,12 +3,9 @@ import time
 import streamlit as st
 from streamlit_extras.stylable_container import stylable_container
 import pandas as pd
-from clickhouse_driver import Client
 from datetime import datetime, timedelta, time as t
 import plotly.graph_objects as go
 from numerize import numerize 
-
-chmetrics = Client('ch-metrics.internal.ather.altinity.cloud', user='chinmay', password='Chinmay_raut@257', port=9440,secure='y', send_receive_timeout = 1000)
 
 @st.cache_data
 def get_dist_today():
