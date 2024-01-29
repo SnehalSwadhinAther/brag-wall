@@ -11,10 +11,6 @@ from numerize import numerize
 def get_dist_today():
     return pd.read_csv("dist_ridden.csv")
 
-@st.cache_data
-def get_dist_today():
-    return pd.read_csv("dist_ridden.csv")
-
 st.set_page_config(
     page_title="Live Data for Today",
     page_icon="✅",
@@ -66,7 +62,7 @@ with st.container():
                                     background-color: black;
                                 }
                                 """):
-            st.metric("Longest ride with public charging in a day", "456,797 km")
+            st.metric("Longest ride with public charging in a day", "127 km")
     with columns[3]:
         with stylable_container(key="Saving", 
                                 css_styles="""
