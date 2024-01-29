@@ -31,7 +31,7 @@ st.write("""
 st.title("Ather Statistics")
 
 if not "time" in st.session_state:
-    st.session_state.time = (datetime.now() - datetime.combine(datetime.now(), t.min)).seconds
+    st.session_state.time = (datetime.now() + timedelta(0, 0, 0, 0, 30, 5) - datetime.combine(datetime.now(), t.min)).seconds
 
 with st.container():
     columns = st.columns(4)
@@ -177,7 +177,7 @@ with st.container():
      
 
 if not "sleep_time" in st.session_state:
-    st.session_state.sleep_time = 2
+    st.session_state.sleep_time = 1
 
 if not "auto_refresh" in st.session_state:
     st.session_state.auto_refresh = True
@@ -192,5 +192,5 @@ if auto_refresh:
 
 if auto_refresh:
     time.sleep(number)
-    st.session_state.time = st.session_state.time + 2
+    st.session_state.time = st.session_state.time + 1
     st.rerun()
