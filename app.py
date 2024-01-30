@@ -28,7 +28,7 @@ if not "time" in st.session_state:
     st.session_state.time = (datetime.now() - datetime.combine(datetime.now(), t.min)).seconds
 
 with st.container():
-    columns = st.columns(4)
+    columns = st.columns(3)
     with columns[0]:
         with stylable_container(key="reg", 
                                 css_styles=["""
@@ -46,14 +46,6 @@ with st.container():
                                 """]):
             st.metric("Longest trip on one charge", "150 km")
     with columns[2]:
-        with stylable_container(key="longestPublic", 
-                                css_styles="""
-                                [data-testid="stMetric"] {
-                                    background-color: black;
-                                }
-                                """):
-            st.metric("Longest ride with public charging in a day", "127 km")
-    with columns[3]:
         with stylable_container(key="Saving", 
                                 css_styles="""
                                 [data-testid="stMetric"] {
