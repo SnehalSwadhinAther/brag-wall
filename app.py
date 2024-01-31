@@ -36,7 +36,7 @@ with st.container():
                                     background-color: #565656;
                                 }
                                 """]):
-            st.metric("Registered Scooters", "192,762")
+            st.metric("Registered Scooters", "1,94,441")
     with columns[1]:
         with stylable_container(key="longest", 
                                 css_styles=["""
@@ -52,7 +52,7 @@ with st.container():
                                     background-color: green;
                                 }
                                 """):
-            st.metric("Total Savings", "₹ 257.56 Cr")
+            st.metric("Total Savings", "₹ 264.95 Cr")
 
 with st.container():
     columns = st.columns(3)
@@ -63,7 +63,7 @@ with st.container():
                                     background-color: black;
                                 }
                                 """]):
-            st.metric("Total Distance Ridden", numerize.numerize(1855071707) + " km")
+            st.metric("Total Distance Ridden", numerize.numerize(1865531382) + " km")
     with columns[1]:
         
         with stylable_container(key="reverse", 
@@ -73,7 +73,7 @@ with st.container():
                                     color: green;
                                 }
                                 """):
-            st.metric("Total Distance in Reverse", numerize.numerize(11195927))
+            st.metric("Total Distance in Reverse", numerize.numerize(11367324))
     with columns[2]:
         with stylable_container(key="fastChargers", 
                                 css_styles=["""
@@ -87,7 +87,7 @@ with st.container():
                                     justify-content: flex-end
                                 }
                                 """]):
-            st.metric("Fast chargers", "1,840")
+            st.metric("Fast chargers", "1,865")
 
 with st.container():
     columns = st.columns([2, 1])
@@ -99,7 +99,7 @@ with st.container():
                                 background-size: cover;
                             }
                             """):
-            st.metric("Kilograms of CO₂ Saved", numerize.numerize(56640074985))  
+            st.metric("Kilograms of CO₂ Saved", numerize.numerize(57550273984))  
     with columns[1]:
         with stylable_container(key="chargingSession", 
                                 css_styles="""
@@ -108,4 +108,4 @@ with st.container():
                                     color: red;
                                 }
                                 """):
-            st.metric("Total Number of Charging Session", numerize.numerize(66172555)) 
+            st.metric("Total Number of Charging Session", numerize.numerize(67174133)) 
