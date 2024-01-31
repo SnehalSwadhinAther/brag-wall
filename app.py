@@ -22,7 +22,7 @@ st.write("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Ather Statistics (till date)")
+st.title("Ather Statistics (overall)")
 
 if not "time" in st.session_state:
     st.session_state.time = (datetime.now() - datetime.combine(datetime.now(), t.min)).seconds
