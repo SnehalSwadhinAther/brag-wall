@@ -1,11 +1,16 @@
-import pandas as pd
-import time
 import streamlit as st
 from streamlit_extras.stylable_container import stylable_container
 import pandas as pd
-from datetime import datetime, timedelta, time as t
-import plotly.graph_objects as go
-from numerize import numerize 
+import math
+
+millnames = ['',' k',' Mn',' Bn',' Tn']
+
+def millify(n):
+    n = float(n)
+    millidx = max(0,min(len(millnames)-1,
+                        math.floor(0 if n == 0 else math.log10(abs(n))/3)))
+    x = str(round(n / 10**(3 * millidx), 2))
+    return (x[:-2] if x[-2:] == ".0" else x) + millnames[millidx]
 
 st.set_page_config(
     page_title="Stats till date",
@@ -22,10 +27,7 @@ st.write("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Ather Statistics (overall)")
-
-if not "time" in st.session_state:
-    st.session_state.time = (datetime.now() - datetime.combine(datetime.now(), t.min)).seconds
+st.title("Ather Stats - Lifetime")
 
 with st.container():
     columns = st.columns(3)
@@ -36,7 +38,7 @@ with st.container():
                                     background-color: #565656;
                                 }
                                 """]):
-            st.metric("Registered Scooters", "1,94,441")
+            st.metric("Total Registered Scooters", "1,94,441")
     with columns[1]:
         with stylable_container(key="longest", 
                                 css_styles=["""
@@ -52,7 +54,7 @@ with st.container():
                                     background-color: green;
                                 }
                                 """):
-            st.metric("Total Savings", "₹ 264.95 Cr")
+            st.metric("Total Savings", "₹ 265.85 Cr")
 
 with st.container():
     columns = st.columns(3)
@@ -63,7 +65,7 @@ with st.container():
                                     background-color: black;
                                 }
                                 """]):
-            st.metric("Total Distance Ridden", numerize.numerize(1865531382) + " km")
+            st.metric("Total Distance Covered", millify(1869134161) + " km")
     with columns[1]:
         
         with stylable_container(key="reverse", 
@@ -73,7 +75,7 @@ with st.container():
                                     color: green;
                                 }
                                 """):
-            st.metric("Total Distance in Reverse", numerize.numerize(11367324))
+            st.metric("Park Assistance / Reverse Distance", millify(11368573) + " km")
     with columns[2]:
         with stylable_container(key="fastChargers", 
                                 css_styles=["""
@@ -87,7 +89,7 @@ with st.container():
                                     justify-content: flex-end
                                 }
                                 """]):
-            st.metric("Fast chargers", "1,865")
+            st.metric("Fast Charging Stations", "2000+")
 
 with st.container():
     columns = st.columns([2, 1])
@@ -99,7 +101,7 @@ with st.container():
                                 background-size: cover;
                             }
                             """):
-            st.metric("Kilograms of CO₂ Saved", numerize.numerize(57550273984))  
+            st.metric("Total CO₂ Emissions Saved", millify(57662570726) + " kg")  
     with columns[1]:
         with stylable_container(key="chargingSession", 
                                 css_styles="""
@@ -108,4 +110,4 @@ with st.container():
                                     color: red;
                                 }
                                 """):
-            st.metric("Total Number of Charging Session", numerize.numerize(67174133)) 
+            st.metric("Total Charging Sessions", millify(67261182)) 
